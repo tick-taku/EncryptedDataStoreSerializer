@@ -1,38 +1,25 @@
 package com.tick.taku.datastore.encryptedserializer.datasource
 
-import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
 import com.tick.taku.datastore.encryptedserializer.datasource.crypto.DataStoreSerializeCipher
-import kotlinx.serialization.SerializationException
-import kotlinx.serialization.StringFormat
-import kotlinx.serialization.json.Json
 import java.io.InputStream
 import java.io.OutputStream
 
-abstract class DataStoreCryptoSerializer <T> (
-    keyAlias: String,
-    private val stringFormat: StringFormat = Json {
-        ignoreUnknownKeys = true
-        encodeDefaults = true
-    }
-): Serializer<T> {
+abstract class DataStoreCryptoSerializer <T> (keyAlias: String): Serializer<T> {
 
     private val cipher = DataStoreSerializeCipher(keyAlias)
 
-    override suspend fun readFrom(input: InputStream): T = runCatching {
+    override suspend fun readFrom(input: InputStream): T {
         val decryptedData = cipher.decryptFrom(input)
-        decode(decryptedData.decodeToString(), stringFormat)
-    }.getOrElse {
-        if (it is SerializationException) throw CorruptionException("Cannot read proto.", it)
-        else throw it
+        return decode(decryptedData.decodeToString())
     }
 
-    abstract fun decode(data: String, stringFormat: StringFormat): T
+    abstract fun decode(data: String): T
 
     override suspend fun writeTo(t: T, output: OutputStream) {
-        val encodedData = encode(t, stringFormat).encodeToByteArray()
+        val encodedData = encode(t).encodeToByteArray()
         cipher.encryptTo(encodedData, output)
     }
 
-    abstract fun encode(data: T, stringFormat: StringFormat): String
+    abstract fun encode(data: T): String
 }
