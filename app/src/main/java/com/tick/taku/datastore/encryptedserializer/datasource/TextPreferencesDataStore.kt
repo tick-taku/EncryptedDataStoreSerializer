@@ -12,9 +12,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class TextPreferencesDataStore @Inject constructor(
-    @ApplicationContext private val context: Context
-) {
+class TextPreferencesDataStore(private val context: Context) {
 
     companion object {
         val textKey = stringPreferencesKey("text")

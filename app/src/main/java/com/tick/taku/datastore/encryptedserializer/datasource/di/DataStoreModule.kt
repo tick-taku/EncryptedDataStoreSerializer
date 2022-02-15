@@ -5,6 +5,7 @@ import com.tick.taku.datastore.encryptedserializer.datasource.TextPreferencesDat
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -14,7 +15,7 @@ object DataStoreModule {
 
     @Provides
     @Singleton
-    fun provideTextPreferencesDataStore(context: Context): TextPreferencesDataStore {
+    fun provideTextPreferencesDataStore(@ApplicationContext context: Context): TextPreferencesDataStore {
         return TextPreferencesDataStore(context)
     }
 
