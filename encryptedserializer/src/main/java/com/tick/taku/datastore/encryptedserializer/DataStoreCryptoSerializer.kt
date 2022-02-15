@@ -2,6 +2,7 @@ package com.tick.taku.datastore.encryptedserializer
 
 import android.security.keystore.KeyProperties
 import androidx.datastore.core.Serializer
+import com.tick.taku.datastore.encryptedserializer.crypto.Cryptor
 import com.tick.taku.datastore.encryptedserializer.crypto.DataStoreSerializeCipher
 import java.io.InputStream
 import java.io.OutputStream
@@ -14,7 +15,7 @@ abstract class DataStoreCryptoSerializer <T> (
     keyStoreProvider: String = DataStoreSerializeCipher.DEFAULT_PROVIDER
 ): Serializer<T> {
 
-    private val cipher: DataStoreSerializeCipher by lazy {
+    private val cipher: Cryptor by lazy {
         DataStoreSerializeCipher(
             keyAlias = keyAlias,
             algorithm = algorithm,
