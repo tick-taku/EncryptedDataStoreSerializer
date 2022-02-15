@@ -17,9 +17,9 @@ class InputTextSerializer(
     override val defaultValue: InputText
         get() = InputText()
 
-    override fun encode(data: InputText): String = stringFormat.encodeToString(data)
+    override fun encodeTo(data: InputText): String = stringFormat.encodeToString(data)
 
-    override fun decode(data: String): InputText = runCatching {
+    override fun decodeFrom(data: String): InputText = runCatching {
         stringFormat.decodeFromString(data) as InputText
     }.getOrElse {
         if (it is SerializationException) throw CorruptionException("Cannot read proto.", it)

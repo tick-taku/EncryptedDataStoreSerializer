@@ -26,15 +26,15 @@ abstract class DataStoreCryptoSerializer <T> (
 
     override suspend fun readFrom(input: InputStream): T {
         val decryptedData = cipher.decryptFrom(input)
-        return decode(decryptedData.decodeToString())
+        return decodeFrom(decryptedData.decodeToString())
     }
 
-    abstract fun decode(data: String): T
+    abstract fun decodeFrom(data: String): T
 
     override suspend fun writeTo(t: T, output: OutputStream) {
-        val encodedData = encode(t).encodeToByteArray()
+        val encodedData = encodeTo(t).encodeToByteArray()
         cipher.encryptTo(encodedData, output)
     }
 
-    abstract fun encode(data: T): String
+    abstract fun encodeTo(data: T): String
 }
