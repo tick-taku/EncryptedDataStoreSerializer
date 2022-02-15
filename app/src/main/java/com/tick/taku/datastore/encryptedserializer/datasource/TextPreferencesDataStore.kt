@@ -1,14 +1,20 @@
-package com.tick.taku.datastore.encryptedserializer
+package com.tick.taku.datastore.encryptedserializer.datasource
 
 import android.content.Context
 import androidx.datastore.core.DataStore
-import androidx.datastore.dataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class TextPreferencesDataStore(private val context: Context) {
+@Singleton
+class TextPreferencesDataStore @Inject constructor(
+    @ApplicationContext private val context: Context
+) {
 
     companion object {
         val textKey = stringPreferencesKey("text")
@@ -24,5 +30,7 @@ class TextPreferencesDataStore(private val context: Context) {
         }
     }
 
-    fun load() = context.dataStore.data
+    fun load() = context.dataStore.data.map {
+        it[textKey].orEmpty()
+    }
 }
