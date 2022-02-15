@@ -10,7 +10,7 @@ import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 
-class DataStoreSerializeCipher(
+internal class DataStoreSerializeCipher(
     private val keyAlias: String,
     private val algorithm: String = KeyProperties.KEY_ALGORITHM_AES,
     private val blockMode: String = KeyProperties.BLOCK_MODE_GCM,
@@ -18,7 +18,7 @@ class DataStoreSerializeCipher(
     private val keyStoreProvider: String = DEFAULT_PROVIDER
 ): Cryptor {
 
-    private companion object {
+    internal companion object {
         const val DEFAULT_PROVIDER = "AndroidKeyStore"
     }
 
