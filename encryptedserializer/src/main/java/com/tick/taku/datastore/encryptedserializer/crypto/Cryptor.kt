@@ -1,4 +1,4 @@
-package com.tick.taku.datastore.encryptedserializer.datasource.crypto
+package com.tick.taku.datastore.encryptedserializer.crypto
 
 import java.io.InputStream
 import java.io.OutputStream

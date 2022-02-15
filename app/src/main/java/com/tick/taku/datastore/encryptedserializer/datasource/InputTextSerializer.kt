@@ -1,6 +1,7 @@
 package com.tick.taku.datastore.encryptedserializer.datasource
 
 import androidx.datastore.core.CorruptionException
+import com.tick.taku.datastore.encryptedserializer.DataStoreCryptoSerializer
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.StringFormat
 import kotlinx.serialization.decodeFromString

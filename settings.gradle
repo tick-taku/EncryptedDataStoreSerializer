@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "EncryptedDataStoreSerializer"
-include ':app'
+include ':app', ':encryptedserializer'

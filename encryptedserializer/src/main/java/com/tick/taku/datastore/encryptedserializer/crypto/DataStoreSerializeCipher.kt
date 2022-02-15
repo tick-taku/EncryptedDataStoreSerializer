@@ -1,4 +1,4 @@
-package com.tick.taku.datastore.encryptedserializer.datasource.crypto
+package com.tick.taku.datastore.encryptedserializer.crypto
 
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties

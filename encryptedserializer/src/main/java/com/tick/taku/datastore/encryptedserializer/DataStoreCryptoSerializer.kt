@@ -1,8 +1,8 @@
-package com.tick.taku.datastore.encryptedserializer.datasource
+package com.tick.taku.datastore.encryptedserializer
 
 import android.security.keystore.KeyProperties
 import androidx.datastore.core.Serializer
-import com.tick.taku.datastore.encryptedserializer.datasource.crypto.DataStoreSerializeCipher
+import com.tick.taku.datastore.encryptedserializer.crypto.DataStoreSerializeCipher
 import java.io.InputStream
 import java.io.OutputStream
 
