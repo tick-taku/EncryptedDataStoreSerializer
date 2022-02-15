@@ -2,6 +2,7 @@ package com.tick.taku.datastore.encryptedserializer.datasource.di
 
 import android.content.Context
 import com.tick.taku.datastore.encryptedserializer.datasource.TextPreferencesDataStore
+import com.tick.taku.datastore.encryptedserializer.datasource.TextProtoDataStore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,4 +20,9 @@ object DataStoreModule {
         return TextPreferencesDataStore(context)
     }
 
+    @Provides
+    @Singleton
+    fun provideTextProtoDataStore(@ApplicationContext context: Context): TextProtoDataStore {
+        return TextProtoDataStore(context)
+    }
 }
