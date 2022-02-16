@@ -7,7 +7,7 @@ import com.tick.taku.datastore.encryptedserializer.crypto.DataStoreSerializeCiph
 import java.io.InputStream
 import java.io.OutputStream
 
-abstract class DataStoreCryptoSerializer <T> (
+abstract class DataStoreCryptoSerializer <T> @JvmOverloads constructor(
     keyAlias: String,
     algorithm: String = KeyProperties.KEY_ALGORITHM_AES,
     blockMode: String = KeyProperties.BLOCK_MODE_GCM,
