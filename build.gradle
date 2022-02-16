@@ -1,8 +1,12 @@
 buildscript {
+    ext.AGP = '7.0.0'
+    ext.KOTLIN = '1.5.31'
+    ext.DAGGER_HILT = '2.40.5'
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0'
-        classpath 'org.jetbrains.kotlin:kotlin-serialization:1.5.31'
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.40.5'
+        classpath "com.android.tools.build:gradle:$AGP"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$KOTLIN"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$DAGGER_HILT"
     }
 }
 
@@ -10,7 +14,11 @@ buildscript {
 plugins {
     id 'com.android.application' version '7.1.0' apply false
     id 'com.android.library' version '7.1.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.5.31' apply false
+    id 'org.jetbrains.kotlin.android' version "$KOTLIN" apply false
+}
+
+subprojects {
+    apply from: "$rootDir/deps.gradle"
 }
 
 task clean(type: Delete) {

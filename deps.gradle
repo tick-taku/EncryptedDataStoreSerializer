@@ -1,0 +1,46 @@
+rootProject.ext.JAVA_SOURCE = JavaVersion.VERSION_1_8
+rootProject.ext.JAVA_TARGET = JavaVersion.VERSION_1_8
+rootProject.ext.JVM_TARGET = '1.8'
+
+rootProject.ext.TARGET_SDK = 31
+rootProject.ext.COMPILE_SDK = 31
+rootProject.ext.MIN_SDK = 24
+
+rootProject.ext.ANDROIDX_CORE_KTX = '1.7.0'
+rootProject.ext.ANDROIDX_APPCOMPAT = '1.4.1'
+rootProject.ext.ANDROIDX_DATASTORE = '1.0.0'
+
+rootProject.ext.COMPOSE_ACTIVITY = '1.4.0'
+rootProject.ext.COMPOSE_MATERIAL = '1.1.0'
+rootProject.ext.COMPOSE_UI_TOOL = '1.1.0'
+rootProject.ext.COMPOSE_CONSTRAINT_LAYOUT = '1.0.0'
+rootProject.ext.KOTLIN_COMPILER_EXTENSION = '1.0.5'
+
+rootProject.ext.MATERIAL = '1.5.0'
+
+rootProject.ext.KOTLIN_SERIALIZATION = '1.3.1'
+
+rootProject.ext.DAGGER_HILT = '2.40.5'
+
+rootProject.ext.JUNIT = '4.13.2'
+
+rootProject.ext.deps = [
+        coreKtx : "androidx.core:core-ktx:$ANDROIDX_CORE_KTX",
+        appcompat : "androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT",
+        material : "com.google.android.material:material:$MATERIAL",
+
+        composeActivity : "androidx.activity:activity-compose:$COMPOSE_ACTIVITY",
+        composeMaterial : "androidx.compose.material:material:$COMPOSE_MATERIAL",
+        composeUiTool : "androidx.compose.ui:ui-tooling:$COMPOSE_UI_TOOL",
+        composeConstraintLayout : "androidx.constraintlayout:constraintlayout-compose:$COMPOSE_CONSTRAINT_LAYOUT",
+
+        datastore : "androidx.datastore:datastore:$ANDROIDX_DATASTORE",
+        datastorePreference : "androidx.datastore:datastore-preferences:$ANDROIDX_DATASTORE",
+
+        kotlinSerialization : "org.jetbrains.kotlinx:kotlinx-serialization-json:$KOTLIN_SERIALIZATION",
+
+        daggerHilt : "com.google.dagger:hilt-android:$DAGGER_HILT",
+        daggerHiltCompiler : "com.google.dagger:hilt-android-compiler:$DAGGER_HILT",
+
+        junit : "junit:junit:$JUNIT"
+]

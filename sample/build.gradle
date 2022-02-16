@@ -8,12 +8,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk rootProject.COMPILE_SDK
 
     defaultConfig {
         applicationId "com.tick.taku.datastore.encryptedserializer"
-        minSdk 24
-        targetSdk 31
+        minSdk rootProject.MIN_SDK
+        targetSdk rootProject.TARGET_SDK
         versionCode 1
         versionName "1.0"
 
@@ -30,14 +30,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility rootProject.JAVA_SOURCE
+        targetCompatibility rootProject.JAVA_TARGET
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = rootProject.JVM_TARGET
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.0.5'
+        kotlinCompilerExtensionVersion rootProject.KOTLIN_COMPILER_EXTENSION
     }
     kapt {
         correctErrorTypes true
@@ -47,24 +47,23 @@ android {
 dependencies {
     implementation project(':encryptedserializer')
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    testImplementation 'junit:junit:4.13.2'
+    implementation rootProject.deps.coreKtx
+    implementation rootProject.deps.appcompat
+    implementation rootProject.deps.material
+    testImplementation rootProject.deps.junit
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    implementation 'androidx.activity:activity-compose:1.4.0'
-    implementation 'androidx.compose.material:material:1.1.0'
-    implementation 'androidx.compose.ui:ui-tooling:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.0'
+    implementation rootProject.deps.composeActivity
+    implementation rootProject.deps.composeMaterial
+    implementation rootProject.deps.composeUiTool
+    implementation rootProject.deps.composeConstraintLayout
 
-    implementation 'androidx.datastore:datastore:1.0.0'
-    implementation 'androidx.datastore:datastore-preferences:1.0.0'
+    implementation rootProject.deps.datastore
+    implementation rootProject.deps.datastorePreference
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1'
+    implementation rootProject.deps.kotlinSerialization
 
-    implementation 'com.google.dagger:hilt-android:2.40.5'
-    kapt 'com.google.dagger:hilt-android-compiler:2.40.5'
+    implementation rootProject.deps.daggerHilt
+    kapt rootProject.deps.daggerHiltCompiler
 }
