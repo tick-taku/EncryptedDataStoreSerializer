@@ -2,11 +2,13 @@ buildscript {
     ext.AGP = '7.0.0'
     ext.KOTLIN = '1.5.31'
     ext.DAGGER_HILT = '2.40.5'
+    ext.MAVEN_PUBLISH = '0.18.0'
 
     dependencies {
         classpath "com.android.tools.build:gradle:$AGP"
         classpath "org.jetbrains.kotlin:kotlin-serialization:$KOTLIN"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$DAGGER_HILT"
+        classpath "com.vanniktech:gradle-maven-publish-plugin:$MAVEN_PUBLISH"
     }
 }
 
