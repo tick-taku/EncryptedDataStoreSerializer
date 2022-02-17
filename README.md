@@ -4,15 +4,17 @@ Serializer that encrypt when saving/reading data for Android DataStore Proto.
 
 ## Setup
 
-```
-implementation 'io.github.tick-taku:datastore.encryptedserializer:<version>'
+```groovy
+dependencies {
+    implementation 'io.github.tick-taku:datastore.encryptedserializer:1.0.0-alpha01'
+}
 ```
 
 ## Usage
 
 1. You can use `DataStoreCyprtoSerializer` to make custom serializer.
 
-```
+```kotlin
 class InputTextSerializer(
     private val stringFormat: StringFormat = Json {
         ignoreUnknownKeys = true
@@ -36,7 +38,7 @@ class InputTextSerializer(
 
 2. Pass serializer when dataStore initialization.
 
-```
+```kotlin
 class TextProtoDataStore(private val context: Context) {
 
     private val Context.dataStore: DataStore<InputText> by dataStore(
