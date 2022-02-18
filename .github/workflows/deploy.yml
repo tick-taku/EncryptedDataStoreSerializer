@@ -26,3 +26,15 @@ jobs:
         git add .
         git commit -m "Update version ${GITHUB_REF#refs/tags/}"
         git push
+    - name: Clean build
+      run: ./gradlew clean build
+    - name: Decode secrets
+      env:
+        GRADLE_PROPETIES: ${{ secrets.GRADLE_PROPETIES_BASE64 }}
+        SECRING_GPG: ${{ secrets.SECRING_GPG_BASE64 }}
+      run: |
+        echo -n "$GRADLE_PROPETIES" | base64 -d > ~/.gradle/gradle.properties
+        echo -n "$SECRING_GPG" | base64 -d > encryptedserializer/secring.gpg
+    - name: Deploy
+      run: |
+        ./gradlew :encryptedserializer:publishToMavenLocal
