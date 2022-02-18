@@ -39,4 +39,4 @@ jobs:
         echo -n "$SECRING_GPG" | base64 -d > encryptedserializer/secring.gpg
     - name: Deploy
       run: |
-        ./gradlew :encryptedserializer:publishToMavenLocal
+        ./gradlew :encryptedserializer:publish
