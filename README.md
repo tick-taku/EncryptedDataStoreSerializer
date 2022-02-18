@@ -6,7 +6,7 @@ Serializer that encrypt when saving/reading data for Android DataStore Proto.
 
 ```groovy
 dependencies {
-    implementation 'io.github.tick-taku:datastore.encryptedserializer:1.0.0-alpha01'
+    implementation 'io.github.tick-taku:datastore.encryptedserializer:1.0.0'
 }
 ```
 
