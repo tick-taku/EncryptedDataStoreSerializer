@@ -7,12 +7,11 @@ import kotlinx.serialization.StringFormat
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import javax.inject.Singleton
 
+@Singleton
 class InputTextSerializer(
-    private val stringFormat: StringFormat = Json {
-        ignoreUnknownKeys = true
-        encodeDefaults = true
-    }
+    private val stringFormat: StringFormat
 ): DataStoreCryptoSerializer<InputText>("input_text") {
 
     override val defaultValue: InputText

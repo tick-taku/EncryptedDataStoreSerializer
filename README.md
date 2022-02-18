@@ -39,11 +39,14 @@ class InputTextSerializer(
 2. Pass serializer when dataStore initialization.
 
 ```kotlin
-class TextProtoDataStore(private val context: Context) {
+class TextProtoDataStore(
+    private val context: Context,
+    serializer: Serializer<InputText>
+) {
 
     private val Context.dataStore: DataStore<InputText> by dataStore(
         fileName = "text.pb",
-        serializer = InputTextSerializer()
+        serializer = serializer
     )
 
 }
